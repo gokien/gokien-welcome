@@ -6,6 +6,8 @@ from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtWebKit import QWebView
 import string as String
+import xdg.IconTheme
+import logging
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 HTML_DIR = os.path.join(ROOT_DIR, 'templates/') # Don't forget the last slash
@@ -53,6 +55,10 @@ class WelcomeSreen(QWebView):
         subs['chat'] = _('Chat')
         subs['extra'] = _('Extra')
         subs['help'] = _('Help')
+
+        firefox_icon = xdg.IconTheme.getIconPath('firefox', theme='Leon')
+        subs['icon_firefox'] = firefox_icon
+        logging.debug(firefox_icon)
         
         template = open(file_path, 'r').read()
         html = String.Template(template).safe_substitute(subs)
@@ -70,6 +76,7 @@ class WelcomeSreen(QWebView):
 
 
 def main(sys_argv):
+    logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
     app = QApplication(sys_argv)
     gokien_welcome_screen = WelcomeSreen(app, 654, 350)
     gokien_welcome_screen.show()

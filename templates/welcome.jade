@@ -9,34 +9,34 @@ html
         #welcome-msg $title
           
       section#shortcut
-        mixin list(command, icon, text)
+        mixin list(command, text)
           li
             a(href="javascript:changeTitle('" + command +"')")
-              img(src=icon)
+              img(src="$" + command + "_icon")
               span.tips= text
   
         section.column
           ul
             header $working
-            mixin list("lowriter","icons/libreoffice-writer.png","$document")
-            mixin list("localc","icons/libreoffice-calc.png","$spreadsheet")
-            mixin list("loimpress","icons/libreoffice-impress.png","$presentation")
+            mixin list("lowriter","$document")
+            mixin list("localc","$spreadsheet")
+            mixin list("loimpress","$presentation")
                       
         section.column
           ul
             header $networking
-            mixin list("firefox","icons/firefox.png","$web_browser")
-            mixin list("empathy","icons/empathy.png","$chat")
+            mixin list("firefox","$web_browser")
+            mixin list("empathy","$chat")
   
         section.column
           ul
             header $extra
-            mixin list("gokien-help","icons/help.png","$help")
+            mixin list("gokien-help","$help")
   
         section.column
           ul
             header $placeholder
-            mixin list("Everything", "icons/help.png","$everything")
+            mixin list("Everything", "$everything")
       footer
         input(type="submit", value="$close", onclick="javascript:changeTitle(\"close\")")
     script(type="text/javascript", src="script.js")
