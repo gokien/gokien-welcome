@@ -55,14 +55,24 @@ class WelcomeSreen(QWebView):
         subs['chat'] = _('Chat')
         subs['extra'] = _('Extra')
         subs['help'] = _('Help')
+        
+
+
 
         firefox_icon = xdg.IconTheme.getIconPath('firefox', theme='Leon')
+        empathy_icon = xdg.IconTheme.getIconPath('empathy', theme='Leon')
+
         subs['icon_firefox'] = firefox_icon
+        subs['icon_empathy'] = empathy_icon
         logging.debug(firefox_icon)
         
         template = open(file_path, 'r').read()
         html = String.Template(template).safe_substitute(subs)
+
+        print html
         return html
+
+
     
     def _title_changed(self,title):
         """

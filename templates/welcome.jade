@@ -12,7 +12,7 @@ html
         mixin list(command, text)
           li
             a(href="javascript:changeTitle('" + command +"')")
-              img(src="$" + command + "_icon")
+              img(src="$" + "icon_" + command)
               span.tips= text
   
         section.column
