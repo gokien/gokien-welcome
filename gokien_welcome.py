@@ -10,8 +10,9 @@ import xdg.IconTheme
 import logging
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-HTML_DIR = os.path.join(ROOT_DIR, 'templates/') # Don't forget the last slash
+HTML_DIR = os.path.join(ROOT_DIR, 'templates/')  # Don't forget the last slash
 HTML_PATH = os.path.join(ROOT_DIR, 'templates/welcome.html')
+
 
 def _(string):
     """
@@ -19,23 +20,23 @@ def _(string):
     """
     return string
 
+
 class WelcomeSreen(QWebView):
     def __init__(self, app, width, height):
         QWebView.__init__(self)
         self.app = app
         self._html = self._parse_html(HTML_PATH)
-        self.setHtml(self._html, baseUrl = QUrl('file://' + HTML_DIR))
+        self.setHtml(self._html, baseUrl=QUrl('file://' + HTML_DIR))
         self.setFixedSize(width, height)
         # Move to the center
         screen_geometry = app.desktop().screenGeometry()
-        self.move((screen_geometry.width() - width) / 2, 
-            (screen_geometry.height() - height) / 2)
+        self.move((screen_geometry.width() - width) / 2,
+                 (screen_geometry.height() - height) / 2)
         # Remove the border
         self.setWindowFlags(Qt.FramelessWindowHint)
-        
-        # Handle event titleChanged 
+
+        # Handle event titleChanged
         self.titleChanged.connect(self._title_changed)
-        
 
     def _parse_html(self, file_path):
         """
@@ -50,7 +51,7 @@ class WelcomeSreen(QWebView):
             "spreadsheet": _('Spreadsheet'),
             "presentation": _('Presentation'),
             "networking": _('Networking'),
-            "web_browser": _('Web Browser') ,
+            "web_browser": _('Web Browser'),
             "chat": _('Chat'),
             "extra": _('Extra'),
             "help": _('Help')
@@ -76,16 +77,14 @@ class WelcomeSreen(QWebView):
         logging.debug(html)
         return html
 
-
-    
-    def _title_changed(self,title):
+    def _title_changed(self, title):
         """
             Handle the signal titleChanged
         """
         if title == 'close':
             self.app.exit()
         else:
-            os.system(title);
+            os.system(title)
         print(title)
 
 
