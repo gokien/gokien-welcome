@@ -46,7 +46,7 @@ ul {
 ul>header {
     width: inherit;
     font-weight: bold;
-    text-align: center;
+    text-align: left;
 }
 
 li {
