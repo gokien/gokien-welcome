@@ -41,35 +41,39 @@ class WelcomeSreen(QWebView):
         """
             Parse the template file and return the resultant content
         """
-        subs = {}
-        # Codename and version
-        subs['title'] = _('Welcome to GokienOS')
-        subs['show'] = _('Open this dialog in the next startup')
-        subs['close'] = _('Close')
-        subs['working'] = _('Working')
-        subs['document'] = _('Document')
-        subs['spreadsheet'] = _('Spreadsheet')
-        subs['presentation'] = _('Presentation')
-        subs['networking'] = _('Networking')
-        subs['web_browser'] = _('Web Browser') 
-        subs['chat'] = _('Chat')
-        subs['extra'] = _('Extra')
-        subs['help'] = _('Help')
-        
+        subs = {
+            "title": _('Welcome to GokienOS'),
+            "show": _('Open this dialog in the next startup'),
+            "close": _('Close'),
+            "working": _('Working'),
+            "document": _('Document'),
+            "spreadsheet": _('Spreadsheet'),
+            "presentation": _('Presentation'),
+            "networking": _('Networking'),
+            "web_browser": _('Web Browser') ,
+            "chat": _('Chat'),
+            "extra": _('Extra'),
+            "help": _('Help')
+        }
 
+        apps = [
+            'firefox',
+            'empathy',
+            'libreoffice-writer',
+            "libreoffice-writer",
+            "libreoffice-calc",
+            "libreoffice-impress",
+            "help"
+        ]
+        for app in apps:
+            # TODO Determine current theme
+            subs['icon_' + app.replace('-', '_')] = \
+                xdg.IconTheme.getIconPath(app, theme='Leon')
 
-
-        firefox_icon = xdg.IconTheme.getIconPath('firefox', theme='Leon')
-        empathy_icon = xdg.IconTheme.getIconPath('empathy', theme='Leon')
-
-        subs['icon_firefox'] = firefox_icon
-        subs['icon_empathy'] = empathy_icon
-        logging.debug(firefox_icon)
-        
         template = open(file_path, 'r').read()
         html = String.Template(template).safe_substitute(subs)
 
-        print html
+        logging.debug(html)
         return html
 
 
