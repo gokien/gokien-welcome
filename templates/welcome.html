@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id="wrapper">
+      <header><img id="logo" src="logo.jpg">
+        <div id="welcome-msg">$title</div>
+      </header>
+      <section id="shortcut">
+        <section class="column">
+          <ul>
+            <header>$working</header>
+                    <li><a href="javascript:changeTitle('lowriter')"><img src="icons/libreoffice-writer.png"><span class="tips">$document</span></a></li>
+                    <li><a href="javascript:changeTitle('localc')"><img src="icons/libreoffice-calc.png"><span class="tips">$spreadsheet</span></a></li>
+                    <li><a href="javascript:changeTitle('loimpress')"><img src="icons/libreoffice-impress.png"><span class="tips">$presentation</span></a></li>
+          </ul>
+        </section>
+        <section class="column">
+          <ul>
+            <header>$networking</header>
+                    <li><a href="javascript:changeTitle('firefox')"><img src="icons/firefox.png"><span class="tips">$web_browser</span></a></li>
+                    <li><a href="javascript:changeTitle('empathy')"><img src="icons/empathy.png"><span class="tips">$chat</span></a></li>
+          </ul>
+        </section>
+        <section class="column">
+          <ul>
+            <header>$extra</header>
+                    <li><a href="javascript:changeTitle('gokien-help')"><img src="icons/help.png"><span class="tips">$help</span></a></li>
+          </ul>
+        </section>
+        <section class="column">
+          <ul>
+            <header>$placeholder</header>
+                    <li><a href="javascript:changeTitle('Everything')"><img src="icons/help.png"><span class="tips">$everything</span></a></li>
+          </ul>
+        </section>
+      </section>
+      <footer>
+        <input type="submit" value="$close" onclick="javascript:changeTitle(&quot;close&quot;)">
+      </footer>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>

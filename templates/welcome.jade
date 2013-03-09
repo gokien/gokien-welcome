@@ -1,0 +1,42 @@
+!!!
+html
+  head
+    link(rel="stylesheet",type="text/css",href="style.css")
+  body
+    #wrapper
+      header
+        img#logo(src="logo.jpg")
+        #welcome-msg $title
+          
+      section#shortcut
+        mixin list(command, icon, text)
+          li
+            a(href="javascript:changeTitle('" + command +"')")
+              img(src=icon)
+              span.tips= text
+  
+        section.column
+          ul
+            header $working
+            mixin list("lowriter","icons/libreoffice-writer.png","$document")
+            mixin list("localc","icons/libreoffice-calc.png","$spreadsheet")
+            mixin list("loimpress","icons/libreoffice-impress.png","$presentation")
+                      
+        section.column
+          ul
+            header $networking
+            mixin list("firefox","icons/firefox.png","$web_browser")
+            mixin list("empathy","icons/empathy.png","$chat")
+  
+        section.column
+          ul
+            header $extra
+            mixin list("gokien-help","icons/help.png","$help")
+  
+        section.column
+          ul
+            header $placeholder
+            mixin list("Everything", "icons/help.png","$everything")
+      footer
+        input(type="submit", value="$close", onclick="javascript:changeTitle(\"close\")")
+    script(type="text/javascript", src="script.js")
