@@ -67,8 +67,8 @@ class WelcomeSreen(QWebView):
             "libreoffice-impress",
             "help"
         ]
-	s = Gio.Settings.new('org.gnome.desktop.interface')
- 	theme = s.get_string('icon-theme')
+        s = Gio.Settings.new('org.gnome.desktop.interface')
+        theme = s.get_string('icon-theme')
         for app in apps:
             # TODO Determine current theme  
             subs['icon_' + app.replace('-', '_')] = \
