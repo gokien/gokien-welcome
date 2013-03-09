@@ -8,6 +8,7 @@ from PySide.QtWebKit import QWebView
 import string as String
 import xdg.IconTheme
 import logging
+from gi.repository import Gio
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 HTML_DIR = os.path.join(ROOT_DIR, 'templates/')  # Don't forget the last slash
@@ -66,10 +67,12 @@ class WelcomeSreen(QWebView):
             "libreoffice-impress",
             "help"
         ]
+        s = Gio.Settings.new('org.gnome.desktop.interface')
+        theme = s.get_string('icon-theme')
         for app in apps:
-            # TODO Determine current theme
+            # TODO Determine current theme  
             subs['icon_' + app.replace('-', '_')] = \
-                xdg.IconTheme.getIconPath(app, theme='Leon')
+                xdg.IconTheme.getIconPath(app, theme=theme)
 
         template = open(file_path, 'r').read()
         html = String.Template(template).safe_substitute(subs)
