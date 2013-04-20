@@ -1,0 +1,10 @@
+Package: gokien-welcome
+Source: gokien-welcome
+Version: 0.1.0
+Architecture: all
+Maintainer: Hoàng Minh Thắng <p@banphim.net>
+Depends: python, python-gi, python-pyside.qtgui, python-pyside.qtwebkit, python-xdg
+Section: misc
+Priority: optional
+Description: gokien welcome screen
+ This package installs the Welcome screen for GokienOS.
