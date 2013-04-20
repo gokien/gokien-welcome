@@ -10,3 +10,5 @@ install:
 		templates/style.css \
 		templates/welcome.html \
 		templates/welcome.jade
+
+	install -D -m 755 gokien-welcome $(DESTDIR)/bin/gokien-welcome
