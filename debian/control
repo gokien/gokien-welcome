@@ -3,7 +3,7 @@ Section: misc
 Priority: optional
 Maintainer: Trung Ngo <ndtrung4419@gmail.com>
 Build-Depends: debhelper (>= 9.0.0),
- python2 (>= 2.7)
+ python (>= 2.7)
 Standards-Version: 3.9.3
 Homepage: http://gokienos.github.com/
 Vcs-Git: git@github.com:gokienos/gokien-welcome.git
