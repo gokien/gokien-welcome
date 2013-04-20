@@ -1,3 +1,6 @@
 debian/gokien-welcome
 /debian/gokien-welcome.debhelper.log
 /debian/gokien-welcome.substvars
+/debian/files
+/debian/gokien-welcome.postinst.debhelper
+/debian/gokien-welcome.prerm.debhelper
