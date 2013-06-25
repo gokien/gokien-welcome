@@ -120,9 +120,9 @@ class WelcomeSreen(QWebView):
         print(title)
 
 
-def main(sys_argv):
+def main():
     logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
-    app = QApplication(sys_argv)
+    app = QApplication(sys.argv)
     welcomeScreen = WelcomeSreen(654, 350)
     welcomeScreen.show()
     app.exec_()
@@ -134,4 +134,4 @@ def main(sys_argv):
 
 
 if __name__ == '__main__':
-    main(sys.argv)
+    main()
