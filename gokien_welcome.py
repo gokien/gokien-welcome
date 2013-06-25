@@ -50,9 +50,9 @@ def _(string):
 
 class WelcomeSreen(QWebView):
 
-    def __init__(self, app, width, height):
+    def __init__(self, width, height):
         QWebView.__init__(self)
-        self.app = app
+        self.app = QApplication.instance()
         self.html = self.parseHtml(HTML_PATH)
         self.setHtml(self.html, baseUrl=QUrl('file://' + HTML_DIR))
         self.setFixedSize(width, height)
@@ -123,7 +123,7 @@ class WelcomeSreen(QWebView):
 def main(sys_argv):
     logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
     app = QApplication(sys_argv)
-    welcomeScreen = WelcomeSreen(app, 654, 350)
+    welcomeScreen = WelcomeSreen(654, 350)
     welcomeScreen.show()
     app.exec_()
 
