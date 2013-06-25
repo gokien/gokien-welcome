@@ -57,9 +57,9 @@ class WelcomeSreen(QWebView):
         self.setHtml(self.html, baseUrl=QUrl('file://' + HTML_DIR))
         self.setFixedSize(width, height)
         # Move to the center
-        screen_geometry = app.desktop().screenGeometry()
-        self.move((screen_geometry.width() - width) / 2,
-                 (screen_geometry.height() - height) / 2)
+        screenGeometry = app.desktop().screenGeometry()
+        self.move((screenGeometry.width() - width) / 2,
+                 (screenGeometry.height() - height) / 2)
         # Remove the border
         self.setWindowFlags(Qt.FramelessWindowHint)
 
