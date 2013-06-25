@@ -4,3 +4,4 @@ debian/gokien-welcome
 /debian/files
 /debian/gokien-welcome.postinst.debhelper
 /debian/gokien-welcome.prerm.debhelper
+*.pyc
