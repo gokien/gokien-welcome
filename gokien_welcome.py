@@ -32,7 +32,7 @@ import os
 from PySide.QtCore import *
 from PySide.QtGui import *
 from PySide.QtWebKit import QWebView
-import string as String
+import string
 import xdg.IconTheme
 import logging
 from gi.repository import Gio
@@ -103,7 +103,7 @@ class WelcomeSreen(QWebView):
                 xdg.IconTheme.getIconPath(app, theme=theme)
 
         template = open(file_path, 'r').read()
-        html = String.Template(template).safe_substitute(subs)
+        html = string.Template(template).safe_substitute(subs)
 
         logging.debug(html)
         return html
