@@ -63,8 +63,9 @@ class WelcomeSreen(QWebView):
         # Remove the border
         self.setWindowFlags(Qt.FramelessWindowHint)
 
-        # Handle event titleChanged
-        self.titleChanged.connect(self.titleChanged)
+        # Use the titleChanged signal as a means of communication between
+        # the JavaScript context and the Python context
+        self.titleChanged.connect(self.performAction)
         self.seeMeNoMore = True
 
     def parseHtml(self, file_path):
@@ -108,7 +109,7 @@ class WelcomeSreen(QWebView):
         logging.debug(html)
         return html
 
-    def titleChanged(self, title):
+    def performAction(self, title):
         """
             Handle the signal titleChanged
         """
