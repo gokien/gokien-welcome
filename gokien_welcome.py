@@ -65,6 +65,7 @@ class WelcomeSreen(QWebView):
 
         # Handle event titleChanged
         self.titleChanged.connect(self._title_changed)
+        self.see_me_no_more = True
 
     def _parse_html(self, file_path):
         """
