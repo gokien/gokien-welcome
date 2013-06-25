@@ -24,7 +24,8 @@ import check_first_run
 import sys
 
 if not check_first_run.is_first_run():
-    sys.exit()
+    sys.exit(0)
+
 
 
 import os
