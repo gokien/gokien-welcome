@@ -127,7 +127,7 @@ def main(sys_argv):
 
     # Create the lock file if the user does not want to see us anymore
     if gokien_welcome_screen.see_me_no_more:
-        with f as open(path, "w"):
+        with open(check_first_run.lock_file_path, "w") as f:
             pass
 
 
