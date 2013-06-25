@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+# -*- coding: utf8 -*-
 #
 # This file is part of the gokien project.
 #
