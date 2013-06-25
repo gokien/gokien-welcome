@@ -18,6 +18,14 @@
 # along with ibus-bogo-python.  If not, see <http://www.gnu.org/licenses/>.
 #
 
+import os
+
+
 def is_first_run():
-	# Check config file existence
-	pass
+    # Check config file existence
+    try:
+        lock_file_path = os.path.expanduser("~/.config/gokien/welcome-lock")
+        open(lock_file_path)
+        return False
+    except:
+        return True
