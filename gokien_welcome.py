@@ -43,7 +43,7 @@ HTML_PATH = os.path.join(ROOT_DIR, 'templates/welcome.html')
 
 def _(string):
     """
-        Placeholder for GNU gettext
+    Placeholder for GNU gettext.
     """
     return string
 
@@ -70,7 +70,7 @@ class WelcomeSreen(QWebView):
 
     def parseHtml(self, file_path):
         """
-            Parse the template file and return the resultant content
+        Parse the template file.
         """
         subs = {
             "title": _('Welcome to GokienOS'),
@@ -111,7 +111,7 @@ class WelcomeSreen(QWebView):
 
     def performAction(self, title):
         """
-            Handle the signal titleChanged
+        Perform the action specified by the JavaScript context.
         """
         if title == 'close':
             self.app.exit()
