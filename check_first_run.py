@@ -16,16 +16,17 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with ibus-bogo-python.  If not, see <http://www.gnu.org/licenses/>.
+# along with gokien.  If not, see <http://www.gnu.org/licenses/>.
 #
 
 import os
+
+lock_file_path = os.path.expanduser("~/.config/gokien/welcome-lock")
 
 
 def is_first_run():
     # Check config file existence
     try:
-        lock_file_path = os.path.expanduser("~/.config/gokien/welcome-lock")
         open(lock_file_path)
         return False
     except:

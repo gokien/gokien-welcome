@@ -17,14 +17,15 @@
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with ibus-bogo-python.  If not, see <http://www.gnu.org/licenses/>.
+# along with gokien.  If not, see <http://www.gnu.org/licenses/>.
 #
 
 import check_first_run
 import sys
 
 if not check_first_run.is_first_run():
-    sys.exit()
+    sys.exit(0)
+
 
 
 import os
@@ -64,6 +65,7 @@ class WelcomeSreen(QWebView):
 
         # Handle event titleChanged
         self.titleChanged.connect(self._title_changed)
+        self.see_me_no_more = True
 
     def _parse_html(self, file_path):
         """
@@ -123,6 +125,12 @@ def main(sys_argv):
     gokien_welcome_screen = WelcomeSreen(app, 654, 350)
     gokien_welcome_screen.show()
     app.exec_()
+
+    # Create the lock file if the user does not want to see us anymore
+    if gokien_welcome_screen.see_me_no_more:
+        with open(check_first_run.lock_file_path, "w") as f:
+            pass
+
 
 if __name__ == '__main__':
     main(sys.argv)
