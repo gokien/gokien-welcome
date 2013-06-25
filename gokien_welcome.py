@@ -1,6 +1,12 @@
 #!/usr/bin/env python
 
+import check_first_run
 import sys
+
+if not check_first_run.is_first_run():
+    sys.exit()
+
+
 import os
 from PySide.QtCore import *
 from PySide.QtGui import *
@@ -70,7 +76,7 @@ class WelcomeSreen(QWebView):
         s = Gio.Settings.new('org.gnome.desktop.interface')
         theme = s.get_string('icon-theme')
         for app in apps:
-            # TODO Determine current theme  
+            # TODO Determine current theme
             subs['icon_' + app.replace('-', '_')] = \
                 xdg.IconTheme.getIconPath(app, theme=theme)
 
