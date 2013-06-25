@@ -21,11 +21,12 @@
 
 import os
 
+lock_file_path = os.path.expanduser("~/.config/gokien/welcome-lock")
+
 
 def is_first_run():
     # Check config file existence
     try:
-        lock_file_path = os.path.expanduser("~/.config/gokien/welcome-lock")
         open(lock_file_path)
         return False
     except:
