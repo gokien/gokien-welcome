@@ -27,7 +27,6 @@ if not check_first_run.is_first_run():
     sys.exit(0)
 
 
-
 import os
 from PySide.QtCore import *
 from PySide.QtGui import *
@@ -50,6 +49,7 @@ def _(string):
 
 
 class WelcomeSreen(QWebView):
+
     def __init__(self, app, width, height):
         QWebView.__init__(self)
         self.app = app
