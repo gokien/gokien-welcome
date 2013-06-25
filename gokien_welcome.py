@@ -53,8 +53,8 @@ class WelcomeSreen(QWebView):
     def __init__(self, app, width, height):
         QWebView.__init__(self)
         self.app = app
-        self._html = self._parse_html(HTML_PATH)
-        self.setHtml(self._html, baseUrl=QUrl('file://' + HTML_DIR))
+        self.html = self.parseHtml(HTML_PATH)
+        self.setHtml(self.html, baseUrl=QUrl('file://' + HTML_DIR))
         self.setFixedSize(width, height)
         # Move to the center
         screen_geometry = app.desktop().screenGeometry()
@@ -64,10 +64,10 @@ class WelcomeSreen(QWebView):
         self.setWindowFlags(Qt.FramelessWindowHint)
 
         # Handle event titleChanged
-        self.titleChanged.connect(self._title_changed)
-        self.see_me_no_more = True
+        self.titleChanged.connect(self.titleChanged)
+        self.seeMeNoMore = True
 
-    def _parse_html(self, file_path):
+    def parseHtml(self, file_path):
         """
             Parse the template file and return the resultant content
         """
@@ -108,7 +108,7 @@ class WelcomeSreen(QWebView):
         logging.debug(html)
         return html
 
-    def _title_changed(self, title):
+    def titleChanged(self, title):
         """
             Handle the signal titleChanged
         """
@@ -122,12 +122,12 @@ class WelcomeSreen(QWebView):
 def main(sys_argv):
     logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
     app = QApplication(sys_argv)
-    gokien_welcome_screen = WelcomeSreen(app, 654, 350)
-    gokien_welcome_screen.show()
+    welcomeScreen = WelcomeSreen(app, 654, 350)
+    welcomeScreen.show()
     app.exec_()
 
     # Create the lock file if the user does not want to see us anymore
-    if gokien_welcome_screen.see_me_no_more:
+    if welcomeScreen.seeMeNoMore:
         with open(check_first_run.lock_file_path, "w") as f:
             pass
 
