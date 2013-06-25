@@ -1,5 +1,6 @@
 all:
-
+	python gokien_welcome.py
+	rm -f ~/.config/gokien/welcome-lock
 install:
 	install -D -m 755 gokien_welcome.py \
 			$(DESTDIR)/share/gokien-welcome/gokien_welcome.py
